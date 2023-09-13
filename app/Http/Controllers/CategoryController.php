@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie;
-use App\Models\Cours;
+
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -29,7 +29,7 @@ class CategoryController extends Controller
         $existingCategorie = Categorie::where('name', $data['name'])->first();
 
         if ($existingCategorie) {
-            return back()->with('error', 'Le nom existe déjà dans la base de données.');
+            return back()->with('success', 'Le nom existe déjà dans la base de données.');
         }
         
         //sauvegarde
@@ -37,7 +37,7 @@ class CategoryController extends Controller
             'name' => $data['name'],
         ]);
 
-        return view('cours.cours');
+        return redirect()->route('accesscours')->with('success', 'Le nom existe déjà dans la base de données.');
     }
 
 

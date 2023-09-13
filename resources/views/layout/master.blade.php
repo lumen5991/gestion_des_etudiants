@@ -43,7 +43,7 @@
                 <a class="btn btn-primary" href="{{route('enseignant')}}">Gestion des enseignants</a>
             </div>
             <div>
-                <a class="btn btn-primary" href="/formcategories">Attribuer cours</a>
+                <a class="btn btn-primary" href="{{route('get_etudiant')}}">Attribuer cours</a>
             </div>
     
         </div>

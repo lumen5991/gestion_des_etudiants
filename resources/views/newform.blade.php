@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.master-head')
 
 @section('content')
     @include('includes.newform')

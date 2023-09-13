@@ -8,6 +8,7 @@
         </div>
     </div>
 </section>
+
 <section>
 
     <div class="container">
@@ -46,7 +47,7 @@
                             <td class="align-middle">{{ $item->tel }}</td>
                             <td class="align-middle">{{ $item->address }}</td>
                             <td class="align-middle">
-                                <a class="btn btn-success btn-sm" href="{{route('affectationEns')}}"> Affecter </a>
+                                <a class="btn btn-success btn-sm" href="{{ route('affectationEns',['id'=>$item['id']]) }}">Affecter</a>
                             </td>
                         </tr>
 

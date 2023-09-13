@@ -12,4 +12,10 @@ class AffectationEnseignant extends Model
     protected $table = 'affectation_enseignant';
     protected $fillable = ['cours_id', 'enseignant_id'];
     use SoftDeletes;
+
+
+
+    public function coursEns(){
+        return $this->belongsTo(Cours::class,"cours_id","id");
+     }
 }

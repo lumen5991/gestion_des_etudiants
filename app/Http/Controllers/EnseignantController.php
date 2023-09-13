@@ -42,11 +42,4 @@ class EnseignantController extends Controller
        return redirect()->route('enseignant')->with('success', 'Cours ajouté avec succès.');
     }
 
-
-    
-    public  function affectationEns()
-    {
- 
-       return view('enseignant.affectationEns');
-    } 
 }

@@ -13,6 +13,7 @@
         </div>
     </div>
 </section>
+
 <section>
 
     <div class="container">
@@ -23,7 +24,7 @@
                 @if (session('succcess'))
                     <div class="alert alert success alert dismissible fade show" role="alert">
                         <strong>Message success</strong> <br> {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
             </section>
@@ -32,22 +33,22 @@
                 <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
-                            <th>id</th>
+                           {{--  <th>id</th> --}}
                             <th>Nom du cours</th>
                             <th>Max horaire</th>
                             <th>Coef</th>
-                   {{--          <th>Catégories</th> --}}
+                            <th>Catégories</th>
                           
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($cours as $item)
                             <tr>
-                                <td class="align-middle"> {{ $item->id }} </td>
+                             {{--    <td class="align-middle"> {{ $item->id }} </td> --}}
                                 <td class="align-middle"> {{ $item->nom_cours }} </td>
                                 <td class="align-middle"> {{ $item->max_horaire }} </td>
                                 <td class="align-middle"> {{ $item->coef }} </td>
-                            {{--     <td class="align-middle"> {{ $categories['id'] }} </td> --}}
+                                <td class="align-middle"> {{$item->categorie->name ?? 'categorie non definie'}}</td>
                               
                             </tr>
                         @endforeach

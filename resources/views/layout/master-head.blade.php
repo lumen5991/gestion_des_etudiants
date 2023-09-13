@@ -15,10 +15,7 @@
                 <a class="navbar-brand text-primary bold mx-auto fs-4" href="#">Ecole229</a>
             </div>
             <div>
-                <h3>{{ $nom ?? '' }} {{ $prenom ?? ''}} @if (isset($id))
-                    N_{{ $id }}
-                    @endif
-
+             {{--    <h3>{{ $nom ?? '' }} {{ $prenom ?? ''}}  --}}
             </h3>
             </div>
             <div>

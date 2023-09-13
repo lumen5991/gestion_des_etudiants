@@ -1,32 +1,40 @@
 <section>
     <h2 class="text-center mt-4">Affectation des cours</h2>
-    <div class="container border d-flex justify-content-between" style="margin-top: 400px !">
-        <div style="width: 50%">
-            <div>
-                AHLE Lumen
-            </div>
+    <a href="" class="text-center"></a>
+    <div class="container border d-flex justify-content-between" style="margin-top: 20px;">
+        <div style="width: 30%">
+
             <div class="mt-4">
-                <form method="" action="">
-                    <label for="cours_id" class="form-label">Cours :</label>
-                    <select name="categorie_id" id="cours_id">
+                <div class="name_enseignant">
+                    {{--   @foreach ($enseignant as $item) --}}
+                    <p>Nom de l'enseignant : <strong> {{ $enseignant->first_name . ' ' . $enseignant->last_name }} </strong>
+                    </p>
 
-                        <option value=""></option>
+                    {{-- @endforeach --}}
 
-                    </select>
-                    <div>
-                        <button class="mt-4 btn btn-success" type="submit">Enregistrer</button>
+                </div>
+                <form method="POST" action="{{ route('saveAffectation', ['enseignant_id' => $id]) }}">
+                    @csrf
+                    <div class="mt-3">
+                        <label for="" class="form-label">Cours :</label>
+                        <div>
+                            <select name="cours_id[]" id="cours_id" multiple style="width: 100%">
+                                <option value="">Sélectionner les cours</option>
+                                @foreach ($cours as $coursItem)
+                                    <option value="{{ $coursItem->id }}">{{ $coursItem->nom_cours }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-
-                    
-                    </form>
-
+                    <div>
+                        <button class="my-3 btn btn-danger btn-sm" type="submit">Enregistrer</button>
+                    </div>
+                </form>
             </div>
-
-
         </div>
-        <div style="width: 50%">
+        <div style="width:60%">
             <div>
-                <h4>Liste des affectation</h4>
+                <h4>Liste des affectations</h4>
             </div>
             <div class="mt-4">
                 <table class="table table-bordered">
@@ -40,10 +48,20 @@
                     <tbody>
 
                         <tr>
-                            <td class="align-middle"> 1 </td>
-                            <td class="align-middle"> Laravel </td>
+                            <td class="align-middle">    @if (isset($id))
+                                Enseignant {{ $id }}
+                                @endif </td>
                             <td class="align-middle">
-                                <a class="btn btn-success btn-sm" href=""> Supprimer </a>
+                                @foreach ($affEn as $cours)
+                                    <ul>
+                                        <li>{{ $cours->coursEns->nom_cours }}</li>
+                                    </ul>
+                                    
+                                @endforeach
+                            </td>
+
+                            <td class="align-middle">
+                                <a class="btn btn-success btn-sm" href="#">Supprimer</a>
                             </td>
                         </tr>
 
@@ -51,6 +69,5 @@
                 </table>
             </div>
         </div>
-
     </div>
 </section>

@@ -18,4 +18,8 @@ class Etudiant extends Model
   
         ]);
      }
+
+     public function see_affectationEtudiant(){
+      return $this->hasMany(AffectationEtudiant::class, 'etudiant_id');
+     }
 }

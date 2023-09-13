@@ -1,4 +1,14 @@
+<section>
+    @if (session('succcess'))
+        <div class="alert alert success alert dismissible fade show" role="alert">
+            <strong>Message success</strong> <br> {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+</section>
 <section class="formulaire mt-5  col-md-6 offset-md-3 row">
+ 
+
     <form method="POST" action="newcategorie" enctype="multipart/form-data" class="border p-4 rounded shadow-sm  ">
         @csrf
         <div class="mb-4 text-center">

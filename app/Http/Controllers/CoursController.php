@@ -16,6 +16,7 @@ class CoursController extends Controller
    public  function accesscours()
    {
       $cours = Cours::all();
+    
       $categories = Categorie::all();
       return view('cours.cours', compact('cours', 'categories'));
    }
@@ -26,16 +27,19 @@ class CoursController extends Controller
       $cours = Cours::all();
       $categories = Categorie::all();
       return view('cours.addcours', compact('categories', 'cours'));
+      
    }
+   
 
    public function newcours(Request $request)
    {
       $data = $request->all();
 
       $validation = $request->validate([
-         'nom_cours' => 'required|string|max:255',
+         'nom_cours' => 'required|unique:cours|string|max:255',
          'max_horaire' => 'required|string|max:255',
-         'coef' => 'required|integer'
+         'coef' => 'required|integer',
+         'categorie_id' => 'required|exists:categorie_cours,id'
       ]);
 
       $save = Cours::create([
@@ -48,4 +52,10 @@ class CoursController extends Controller
 
       return redirect()->route('accesscours')->with('success', 'Cours ajouté avec succès.');
    }
+
+   public function affectcours(){
+
+      return view ('cours.affectcours');
+   }
+
 }

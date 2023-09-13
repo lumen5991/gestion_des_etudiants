@@ -1,3 +1,11 @@
+<section>
+    @if (session('succcess'))
+        <div class="alert alert success alert dismissible fade show" role="alert">
+            <strong>Message success</strong> <br> {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+</section>
 <section class="formulaire container mt-5  col-md-6 offset-md-3 row">
     <form method="POST" action="{{route('newcours')}}" enctype="multipart/form-data" class="border p-4 rounded shadow-sm  ">
         @csrf
@@ -13,7 +21,7 @@
         </div>
         <div>
             <label for="max_horaire" class="form-label">Max horaire :</label>
-        <input type="text" class="form-control" name="max_horaire" id="max_horaire">
+        <input type="number" class="form-control" name="max_horaire" id="max_horaire">
 
         </div>
         <div>

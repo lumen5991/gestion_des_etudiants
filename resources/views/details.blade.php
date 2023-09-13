@@ -28,7 +28,7 @@
 </body>
 </html> --}}
 
-@extends('layout.master')
+@extends('layout.master-head')
 @if(isset($id))
 @section('content')
     @include('includes.infos')

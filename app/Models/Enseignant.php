@@ -14,8 +14,8 @@ class Enseignant extends Model
    protected $fillable = ['first_name', 'last_name', 'tel', 'address'];
    use SoftDeletes;
 
-  /*  public function affectationEns() {
-    return $this->hasManyThrough(Cours::class, affectationEnseignant::class, 'enseignant_id', 'id', 'id', 'cours_id');
-   } */
+  public function affectEns() {
+    return $this->hasMany(AffectationEnseignant::class, 'enseignant_id', 'id');
+   }  
    
 }
